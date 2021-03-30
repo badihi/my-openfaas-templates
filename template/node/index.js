@@ -42,6 +42,10 @@ const isObject = (a) => {
     return (!!a) && (a.constructor === Object);
 };
 
+const isStream = (a) => {
+    return (!!a) && !!(a.pipe);
+};
+
 class FunctionEvent {
     constructor(req) {
         this.body = req.body;
@@ -100,10 +104,15 @@ const middleware = async (req, res) => {
                 .send(err.toString ? err.toString() : err);
         }
 
-        if(isArray(functionResult) || isObject(functionResult)) {
+        if (isArray(functionResult) || isObject(functionResult)) {
             res.set(fnContext.headers())
-                .status(fnContext.status()).send(JSON.stringify(functionResult));
-        } else {
+                .status(fnContext.status())
+				.send(JSON.stringify(functionResult));
+        } if (isStream(functionResult)) {
+			res.set(fnContext.headers())
+                .status(fnContext.status());
+				functionResult.pipe(res);
+		} else {
             res.set(fnContext.headers())
                 .status(fnContext.status())
                 .send(functionResult);
