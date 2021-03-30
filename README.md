@@ -2,7 +2,7 @@
 
 I found official openfaas templates so minimal (and cheap somehow), and they would not be covering my primary needs. Unfortunately, it is the best Faas platform around and we have no choice but stick with it (or ignore the concept of faas at all).
 
-So I decided to create my own collection of openfaas templates, that covers the basics that is needed and enables me (and maybe others) from using this platform.
+So I decided to create my own collection of openfaas templates, that covers the basics that is needed and enables me (and maybe others) use this platform.
 
 ## Using
 ```
