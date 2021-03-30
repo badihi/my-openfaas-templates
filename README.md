@@ -4,7 +4,7 @@ I found official openfaas templates so minimal (and even cheap somehow), and the
 
 So I decided to create my own collection of openfaas templates, that covers the basics that is needed and enables me (and maybe others) use this platform.
 
-## Using
+## Usage
 ```
 faas-cli template pull https://github.com/badihi/my-openfaas-templates
 ```
